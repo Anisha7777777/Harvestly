@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harvestly - Consumer</title>
+  <link rel="stylesheet" href="consumer.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+<header class="top-bar">
+<h2 onclick="window.location.href='index.html'" style="cursor: pointer;">Harvestly</h2>  <div class="cart-icon" onclick="openCart()">
+    🛒 <span id="cartCount">0</span>
+  </div>
+</header>
+
+<section class="products-section">
+  <h2>Available Products</h2>
+  <div id="productsContainer"></div>
+</section>
+
+<section class="map-section">
+  <h2>Nearby Farmers</h2>
+  <div id="map"></div>
+</section>
+
+<section class="price-section">
+  <h2>Price Comparison</h2>
+  <table id="priceTable" border="1">
+    <thead>
+      <tr>
+        <th>Farmer</th>
+        <th>Product</th>
+        <th>Farmer Price</th>
+        <th>Market Price</th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<!-- CART MODAL -->
+<div id="cartModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCart()">✖</span>
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div id="cartTotal"></div>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="consumer.js"></script>
+
+</body>
+</html>

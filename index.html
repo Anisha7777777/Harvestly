@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WD02 Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="script.js"></script>
+  
+
+</head>
+
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "detect_browser_language": true, "languages": ["en", "ta", "hi", "mr"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "left", "switcher_vertical_position": "top" }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+
+
+
+  <!--  HERO SECTION  -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>Harvestly</h1>
+      <p>Connecting Farmers Directly With Consumers</p>
+      <div class="hero-buttons">
+        <button onclick="openLogin('farmer')">For Farmers</button>
+        <button onclick="openLogin('consumer')">For Consumers</button>
+
+
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="farm.jpg" alt="Farm Illustratio"/>
+    </div>
+  </div>
+
+
+  <!--  About Dashboard Section  -->
+  <div id="aboutSection" class="about-dashboard">
+    <div class="dashboard-card">
+      <h2>About Harvestly</h2>
+      <p>
+        <strong>Harvestly</strong> bridges the gap between farmers and consumers by providing a direct, transparent,
+        and efficient platform for buying and selling fresh produce. Our goal is to ensure farmers get fair prices while
+        consumers enjoy fresh, high-quality produce.
+      </p>
+      <p>
+        Farmers can register, list their products, and showcase their farm locations on our interactive map. Consumers
+        can browse products, compare prices, and place orders directly with farmers, selecting convenient delivery
+        slots.
+      </p>
+      <p>
+        By connecting local farmers directly with consumers, we promote fair trade, reduce middlemen, and strengthen
+        local agriculture. AgriConnect is more than a marketplace — it’s a step towards a sustainable, transparent, and
+        community-driven food ecosystem.
+      </p>
+    </div>
+  </div>
+
+<section id="flowchart">
+  <h2>How Harvestly Works</h2>
+  <div class="flow-vertical">
+    <div class="flow-step scroll-fly">
+      <div class="step-icon">👩‍🌾</div>
+      <p>Farmers register and add products</p>
+    </div>
+    <div class="connector scroll-fly"></div>
+
+    <div class="flow-step scroll-fly">
+      <div class="step-icon">🛒</div>
+      <p>Consumers browse and select products</p>
+    </div>
+    <div class="connector scroll-fly"></div>
+
+    <div class="flow-step scroll-fly">
+      <div class="step-icon">📍</div>
+      <p>Nearest farmers shown on the map</p>
+    </div>
+    <div class="connector scroll-fly"></div>
+
+    <div class="flow-step scroll-fly">
+      <div class="step-icon">💰</div>
+      <p>Price comparison displayed</p>
+    </div>
+    <div class="connector scroll-fly"></div>
+
+    <div class="flow-step scroll-fly">
+      <div class="step-icon">✅</div>
+      <p>Orders placed and delivered in 2 days</p>
+    </div>
+  </div>
+</section>
+
+  
+   
+    <!--<div class="utility-buttons">
+    <button onclick="clearFarmers()">Clear All Farmers</button>
+    <button onclick="clearOrders()">Clear All Orders</button>
+  </div>-->
+
+  <div id="authOverlay" class="auth-overlay hidden">
+    <div class="auth-modal">
+      <h2 id="authTitle">Login</h2>
+
+      <input type="text" id="authUsername" placeholder="Username" />
+      <input type="password" id="authPassword" placeholder="Password" />
+
+      <button id="authBtn" onclick="loginUser()">Login</button>
+
+      <p class="toggle-text">
+        New user? <span onclick="switchToRegister()">Register here</span>
+      </p>
+
+      <button class="close-btn" onclick="closeAuth()">✕</button>
+    </div>
+  </div>
+
+
+
+
+  <!-- ---------- Footer / End Credits ---------- -->
+  <footer id="projectFooter" class="footer">
+    <div class="footer-content">
+      <p><strong>Harvestly Dashboard</strong></p>
+      <p>Developed by: Anisha A, Nandhini A, Pavithra D</p>
+      <p>© 2026 | All Rights Reserved</p>
+      <p>Special thanks to OpenStreetMap, Leaflet.js & all contributors</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

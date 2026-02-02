@@ -1,0 +1,552 @@
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f111a, #1a1d2b);
+  color: #e0e0e0;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+  background: linear-gradient(135deg, #0d6e6e, #1b4f72);
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top-bar h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-bar h2:hover {
+  color: #1abc9c;
+  transform: scale(1.05);
+  text-shadow: 0 0 20px rgba(26,188,156,0.6);
+}
+
+.farmer-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.farmer-info span {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: rgba(231, 76, 60, 0.8);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.5);
+}
+
+/* ===== WELCOME SECTION ===== */
+.welcome-section {
+  text-align: center;
+  padding: 60px 8%;
+  background: linear-gradient(135deg, rgba(26,188,156,0.1), rgba(52,152,219,0.1));
+  margin: 30px 8%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.welcome-section h1 {
+  color: #1abc9c;
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.welcome-section p {
+  color: #dcdcdc;
+  font-size: 1.3rem;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 60px 8%;
+  margin: 40px auto;
+  max-width: 1400px;
+}
+
+section h2 {
+  color: #1abc9c;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ===== ADD PRODUCT SECTION ===== */
+.add-product-section {
+  background: rgba(40,45,60,0.5);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+#productForm {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 40px;
+  background: rgba(30, 34, 50, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  color: #1abc9c;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(40,45,60,0.7);
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 15px rgba(26,188,156,0.6);
+  background: rgba(40,45,60,0.9);
+}
+
+#productForm button {
+  width: 100%;
+  padding: 18px 30px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(26,188,156,0.4);
+}
+
+#productForm button:hover {
+  background: linear-gradient(135deg, #16a085, #1abc9c);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(26,188,156,0.6);
+}
+
+.message {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: none;
+}
+
+.message.success {
+  background: linear-gradient(135deg, #1abc9c, #3498db);
+  color: #fff;
+}
+
+.message.error {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+}
+
+/* ===== MY PRODUCTS SECTION ===== */
+.my-products-section {
+  background: rgba(40,45,60,0.5);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+#productsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.no-products {
+  text-align: center;
+  color: #999;
+  font-size: 1.2rem;
+  padding: 40px;
+  grid-column: 1 / -1;
+}
+
+.product-card {
+  background: rgba(30, 34, 50, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: all 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(26,188,156,0.3);
+  border-color: rgba(26,188,156,0.3);
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.product-header h3 {
+  color: #1abc9c;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.product-status {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.product-status.in-stock {
+  background: rgba(46, 213, 115, 0.2);
+  color: #2ed573;
+  border: 1px solid rgba(46, 213, 115, 0.4);
+}
+
+.product-status.out-of-stock {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+.product-details {
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.detail-item .label {
+  color: #999;
+  font-weight: 600;
+}
+
+.detail-item .value {
+  color: #e0e0e0;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.detail-item .value.total {
+  color: #1abc9c;
+  font-size: 1.3rem;
+}
+
+.delete-btn {
+  width: 100%;
+  padding: 12px;
+  background: rgba(231, 76, 60, 0.2);
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  color: #e74c3c;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #e74c3c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== TUTORIAL SECTION ===== */
+.tutorial-section {
+  background: rgba(40,45,60,0.5);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.tutorial-card {
+  background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(26,188,156,0.1));
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  border: 2px solid rgba(26,188,156,0.2);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(26,188,156,0.4);
+  border-color: #1abc9c;
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: linear-gradient(135deg, #1abc9c, #3498db);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.step-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.tutorial-card h3 {
+  color: #1abc9c;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.tutorial-card p {
+  color: #dcdcdc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.example-box {
+  background: rgba(26,188,156,0.2);
+  border: 2px dashed #1abc9c;
+  border-radius: 10px;
+  padding: 15px;
+  color: #1abc9c;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+/* ===== VIDEO TUTORIAL ===== */
+.video-tutorial {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.video-tutorial h3 {
+  color: #3498db;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.video-placeholder {
+  background: rgba(52,152,219,0.1);
+  border: 3px dashed #3498db;
+  border-radius: 20px;
+  padding: 60px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.video-placeholder p {
+  color: #3498db;
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+/* ===== HELP SECTION ===== */
+.help-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.help-section h3 {
+  color: #e74c3c;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.help-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.help-card {
+  background: rgba(231,76,60,0.1);
+  border: 2px solid rgba(231,76,60,0.3);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.help-card:hover {
+  background: rgba(231,76,60,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(231,76,60,0.4);
+}
+
+.help-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.help-card p {
+  color: #dcdcdc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.help-card strong {
+  color: #e74c3c;
+  font-size: 1.2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .top-bar {
+    padding: 15px 5%;
+  }
+
+  section {
+    padding: 50px 5%;
+  }
+
+  .welcome-section h1 {
+    font-size: 2.5rem;
+  }
+
+  #productsContainer {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 4%;
+  }
+
+  .welcome-section {
+    margin: 20px 4%;
+    padding: 40px 4%;
+  }
+
+  .welcome-section h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 40px 4%;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
+  #productsContainer {
+    grid-template-columns: 1fr;
+    height: 100px;
+    width: 100px;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #productForm {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar h2 {
+    font-size: 1.5rem;
+  }
+
+  .farmer-info span {
+    font-size: 1rem;
+  }
+
+  .welcome-section h1 {
+    font-size: 1.6rem;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  .tutorial-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .step-icon {
+    font-size: 3rem;
+  }
+}

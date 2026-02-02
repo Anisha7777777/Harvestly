@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harvestly - Farmer Dashboard</title>
+  <link rel="stylesheet" href="farmer.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = { "default_language": "en", "native_language_names": true, "detect_browser_language": true, "languages": ["en", "ta", "hi", "mr"], "wrapper_selector": ".gtranslate_wrapper", "switcher_horizontal_position": "right", "switcher_vertical_position": "bottom" }</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+<body>
+
+<header class="top-bar">
+  <h2 onclick="window.location.href='index.html'" style="cursor: pointer;">Harvestly</h2>
+  <div class="farmer-info">
+    <span id="farmerName">👨‍🌾 Farmer</span>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </div>
+</header>
+
+<!-- Welcome Section -->
+<section class="welcome-section">
+  <h1>Welcome, <span id="welcomeFarmerName">Farmer</span>!</h1>
+  <p>Add your fresh produce to reach consumers directly</p>
+</section>
+
+<!-- Add Product Section -->
+<section class="add-product-section">
+  <h2>Add Your Product</h2>
+  <form id="productForm">
+    <div class="form-group">
+      <label>Product Name</label>
+      <input type="text" id="productName" placeholder="e.g., Tomatoes, Rice, Wheat" required>
+    </div>
+
+    <div class="form-group">
+      <label>Quantity (in kg)</label>
+      <input type="number" id="quantity" placeholder="How many kg?" min="1" required>
+    </div>
+
+    <div class="form-group">
+      <label>Price per kg (₹)</label>
+      <input type="number" id="price" placeholder="Price in Rupees" min="1" required>
+    </div>
+
+    <div class="form-group">
+      <label>Harvest Date</label>
+      <input type="date" id="harvestDate" required>
+    </div>
+
+    <button type="submit">Add Product ✅</button>
+  </form>
+
+  <div id="productMessage"></div>
+</section>
+
+<!-- My Products Section -->
+<section class="my-products-section">
+  <h2>My Products</h2>
+  <div id="productsContainer"></div>
+</section>
+
+<!-- Tutorial Section for Illiterate Farmers -->
+<section class="tutorial-section">
+  <h2>📚 How to Use (Step by Step Guide)</h2>
+  
+  <div class="tutorial-grid">
+    <!-- Step 1 -->
+    <div class="tutorial-card">
+      <div class="step-number">1</div>
+      <div class="step-icon">📝</div>
+      <h3>Enter Product Name</h3>
+      <p>Type what you are selling<br>(Tomato, Rice, Wheat, etc.)</p>
+      <div class="example-box">
+        Example: टमाटर / Tomato
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="tutorial-card">
+      <div class="step-number">2</div>
+      <div class="step-icon">⚖️</div>
+      <h3>Enter Quantity</h3>
+      <p>How many kilograms do you have?</p>
+      <div class="example-box">
+        Example: 50 kg
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="tutorial-card">
+      <div class="step-number">3</div>
+      <div class="step-icon">💰</div>
+      <h3>Enter Price</h3>
+      <p>How much rupees per kg?</p>
+      <div class="example-box">
+        Example: ₹40 per kg
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="tutorial-card">
+      <div class="step-number">4</div>
+      <div class="step-icon">📅</div>
+      <h3>Select Harvest Date</h3>
+      <p>When did you harvest it?</p>
+      <div class="example-box">
+        Click calendar and pick date
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="tutorial-card">
+      <div class="step-number">5</div>
+      <div class="step-icon">✅</div>
+      <h3>Click Add Product</h3>
+      <p>Press the green button to add</p>
+      <div class="example-box">
+        Your product is now live!
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="tutorial-card">
+      <div class="step-number">6</div>
+      <div class="step-icon">🛒</div>
+      <h3>Wait for Orders</h3>
+      <p>Customers will see your products</p>
+      <div class="example-box">
+        You will get orders soon!
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Tutorial Placeholder -->
+  <div class="video-tutorial">
+    <h3>📹 Watch Video Tutorial (Hindi/Tamil/Marathi)</h3>
+    <div class="video-placeholder">
+      <p>🎥 Video tutorial will be added here</p>
+      <p>Tutorial in: हिंदी | தமிழ் | मराठी | English</p>
+    </div>
+  </div>
+
+  <!-- Help Section -->
+  <div class="help-section">
+    <h3>Need Help? 📞</h3>
+    <div class="help-cards">
+      <div class="help-card">
+        <span class="help-icon">📞</span>
+        <p>Call Support<br><strong>1800-XXX-XXXX</strong></p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">💬</span>
+        <p>WhatsApp Help<br><strong>+91-XXXX-XXXXXX</strong></p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">🎓</span>
+        <p>Visit Training Center<br><strong>Near You</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="farmer.js"></script>
+
+</body>
+</html>
